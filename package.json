@@ -1,6 +1,6 @@
 {
   "name": "action-assign-random-reviewer",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "main": "dist/index.js",
   "repository": "git@github.com:ilyaulyanov/action-assign-random-reviewer.git",
   "author": "Ilya Ulyanov <ilya.wt@gmail.com>",
@@ -14,12 +14,15 @@
     "@octokit/rest": "^17.9.0",
     "@types/node": "^13.13.5",
     "@zeit/ncc": "^0.22.1",
+    "dotenv": "^8.2.0",
     "prettier": "^2.0.5",
+    "semantic-release": "^17.0.7",
     "typescript": "^3.8.3"
   },
   "scripts": {
     "build": "tsc && ncc build",
     "format": "prettier --write **/*.ts",
-    "format-check": "prettier --check **/*.ts"
+    "format-check": "prettier --check **/*.ts",
+    "release": "semantic-release"
   }
 }
