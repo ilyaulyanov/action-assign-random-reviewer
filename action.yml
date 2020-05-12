@@ -1,0 +1,10 @@
+name: 'Auto-Assign Reviewer'
+description: 'Assign review based on PR label'
+author: 'Ilya Ulyanov'
+inputs: 
+  repo-token:
+    description: 'The GITHUB_TOKEN secret'
+    required: true
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
