@@ -6980,14 +6980,17 @@ function run() {
                 console.log('Could not get pull request number from context, exiting');
                 return;
             }
-            console.log({ pullRequest });
-            const client = new github.GitHub(token);
-            const result = yield client.pulls.list({
-                owner: 'procurify',
-                repo: 'procurify-react',
-                state: 'open',
-            });
-            console.log(result);
+            if (pullRequest.user.login.includes('dependabot')) {
+                console.log('dependabot PR');
+                const client = new github.GitHub(token);
+                const result = yield client.pulls.list({
+                    owner: github.context.repo.owner,
+                    repo: github.context.repo.repo,
+                    state: 'open',
+                });
+                console.log(result);
+            }
+            return true;
         }
         catch (error) {
             core.error(error);
