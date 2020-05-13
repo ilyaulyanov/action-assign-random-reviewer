@@ -11,15 +11,19 @@ async function run() {
       return
     }
 
-    console.log({ pullRequest })
+    if (pullRequest.user.login.includes('dependabot')) {
+      console.log('dependabot PR')
 
-    const client = new github.GitHub(token)
-    const result = await client.pulls.list({
-      owner: 'procurify',
-      repo: 'procurify-react',
-      state: 'open',
-    })
-    console.log(result)
+      const client = new github.GitHub(token)
+      const result = await client.pulls.list({
+        owner: github.context.repo.owner,
+        repo: github.context.repo.repo,
+        state: 'open',
+      })
+      console.log(result)
+    }
+
+    return true
   } catch (error) {
     core.error(error)
     core.setFailed(error.message)
