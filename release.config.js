@@ -50,11 +50,12 @@ module.exports = {
       {
         npmPublish: false,
       },
-    ][
+    ],
+    [
       ('@semantic-release/github',
       {
         assets: ['dist/**'],
-      })
+      }),
     ],
     [
       '@semantic-release/git',
