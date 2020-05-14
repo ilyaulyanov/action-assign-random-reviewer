@@ -86,7 +86,6 @@ aliases:
 jobs:
   checkout-code:
     working_directory: /home/circleci/project
-    resource_class: large
     docker:
       - image: circleci/node:12
     steps:
