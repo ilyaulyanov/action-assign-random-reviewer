@@ -3,6 +3,13 @@
 See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.2](https://github.com/ilyaulyanov/action-assign-random-reviewer/compare/v1.5.1...v1.5.2) (2020-05-14)
+
+
+### Bug Fixes
+
+* use npm release plugin (no publish) ([c167b36](https://github.com/ilyaulyanov/action-assign-random-reviewer/commit/c167b36ea996ce3a4da5439f044f3a1229306da4))
+
 ## [1.5.1](https://github.com/ilyaulyanov/action-assign-random-reviewer/compare/v1.5.0...v1.5.1) (2020-05-14)
 
 # [1.5.0](https://github.com/ilyaulyanov/action-assign-random-reviewer/compare/v1.4.2...v1.5.0) (2020-05-14)
