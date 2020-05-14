@@ -12,15 +12,33 @@ async function run() {
     }
 
     if (pullRequest.user.login.includes('dependabot')) {
-      console.log('dependabot PR')
-
       const client = new github.GitHub(token)
-      const result = await client.pulls.list({
+
+      const currentOpenPullRequests = await client.pulls.list({
         owner: github.context.repo.owner,
         repo: github.context.repo.repo,
         state: 'open',
       })
-      console.log(result)
+      const pullRequestsByDependabot = currentOpenPullRequests.data.filter(
+        (pr) => pr.user.type === 'Bot' && pr.user.login.includes('dependabot')
+      )
+
+      const currentDependabotAssignees = pullRequestsByDependabot
+        .map((dependabotPR) =>
+          dependabotPR.requested_reviewers.map((reviewer) => reviewer.login)
+        )
+        .flat(Infinity)
+
+      const frontEndTeam1 = ['ilyaulyanov']
+
+      const result = await client.pulls.createReviewRequest({
+        owner: github.context.repo.owner,
+        repo: github.context.repo.repo,
+        pull_number: pullRequest.number,
+        reviewers: frontEndTeam1,
+      })
+
+      return true
     }
 
     return true
