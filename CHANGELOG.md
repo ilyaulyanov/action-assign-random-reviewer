@@ -3,6 +3,13 @@
 See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/ilyaulyanov/action-assign-random-reviewer/compare/v1.5.4...v1.6.0) (2020-05-14)
+
+
+### Features
+
+* push dist to remote ([71521d2](https://github.com/ilyaulyanov/action-assign-random-reviewer/commit/71521d2684c7a1edf5d62249a35715b1cb8dc841))
+
 ## [1.5.4](https://github.com/ilyaulyanov/action-assign-random-reviewer/compare/v1.5.3...v1.5.4) (2020-05-14)
 
 ## [1.5.3](https://github.com/ilyaulyanov/action-assign-random-reviewer/compare/v1.5.2...v1.5.3) (2020-05-14)
