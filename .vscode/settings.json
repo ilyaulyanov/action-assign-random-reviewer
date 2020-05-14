@@ -1,5 +1,0 @@
-{
-  "prettier.prettierPath": ".vscode/pnpify/prettier/index.js",
-  "typescript.tsdk": "node_modules/typescript/lib",
-  "typescript.enablePromptUseWorkspaceTsdk": true
-}
