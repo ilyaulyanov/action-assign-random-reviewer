@@ -97,6 +97,8 @@ jobs:
           key: dependency-cache-{{ checksum "yarn.lock" }}
           paths:
             - ~/.cache/yarn
+      # - run: yarn build
+      # - run: npx semantic-release
 
 workflows:
   test_workflow:
