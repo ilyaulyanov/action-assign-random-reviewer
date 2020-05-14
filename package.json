@@ -1,6 +1,6 @@
 {
   "name": "action-assign-random-reviewer",
-  "version": "1.5.2",
+  "version": "1.5.3",
   "main": "dist/index.js",
   "repository": "git@github.com:ilyaulyanov/action-assign-random-reviewer.git",
   "author": "Ilya Ulyanov <ilya.wt@gmail.com>",
