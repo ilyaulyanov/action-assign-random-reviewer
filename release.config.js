@@ -1,5 +1,4 @@
 module.exports = {
-  ci: false,
   debug: true,
   plugins: [
     [
