@@ -1,5 +1,17 @@
 # Changelog
 
+See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.5.0](https://github.com/ilyaulyanov/action-assign-random-reviewer/compare/v1.4.2...v1.5.0) (2020-05-14)
+
+
+### Features
+
+* add src ([6eee5e7](https://github.com/ilyaulyanov/action-assign-random-reviewer/commit/6eee5e7c75a10fdb3a8ba9a9a5dc423364cb52ae))
+
+# Changelog
+
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
