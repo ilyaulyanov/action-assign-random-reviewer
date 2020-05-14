@@ -45,9 +45,17 @@ module.exports = {
           '# Changelog\n\nSee\n[Conventional Commits](https://conventionalcommits.org) for commit guidelines.',
       },
     ],
-    ['@semantic-release/github', {
-      assets: ['dist/**']
-    }],
+    [
+      '@semantic-release/npm',
+      {
+        npmPublish: false,
+      },
+    ][
+      ('@semantic-release/github',
+      {
+        assets: ['dist/**'],
+      })
+    ],
     [
       '@semantic-release/git',
       {
