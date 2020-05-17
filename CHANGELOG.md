@@ -3,6 +3,13 @@
 See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/ilyaulyanov/action-assign-random-reviewer/compare/v1.6.0...v1.7.0) (2020-05-17)
+
+
+### Features
+
+* add loading config ([03f0798](https://github.com/ilyaulyanov/action-assign-random-reviewer/commit/03f0798e9288cffb20a5032793dc717b805c175e))
+
 # [1.6.0](https://github.com/ilyaulyanov/action-assign-random-reviewer/compare/v1.5.4...v1.6.0) (2020-05-14)
 
 
