@@ -17,9 +17,11 @@
     "@semantic-release/github": "^7.0.6",
     "@semantic-release/npm": "^7.0.5",
     "@semantic-release/release-notes-generator": "^9.0.1",
+    "@types/js-yaml": "^3.12.4",
     "@types/node": "^13.13.5",
     "@zeit/ncc": "^0.22.1",
     "dotenv": "^8.2.0",
+    "js-yaml": "^3.13.1",
     "prettier": "^2.0.5",
     "semantic-release": "^17.0.7",
     "typescript": "^3.8.3"
@@ -29,6 +31,6 @@
     "format": "prettier --write **/*.ts",
     "format-check": "prettier --check **/*.ts",
     "release": "semantic-release",
-    "repo": "yarn build && node -r dotenv/config ./dist/repo.js"
+    "repo": "yarn build && node -r dotenv/config ./dist/loadConfig.js"
   }
 }

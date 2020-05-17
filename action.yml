@@ -5,6 +5,10 @@ inputs:
   repo-token:
     description: 'The GITHUB_TOKEN secret'
     required: true
+  action-config:
+    description: 'Config path'
+    default: '.github/assign_reviewer_by_label.yml'
+    required: false
 runs:
   using: 'node12'
   main: 'dist/index.js'

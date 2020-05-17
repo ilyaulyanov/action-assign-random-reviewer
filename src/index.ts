@@ -1,5 +1,6 @@
 import * as core from '@actions/core'
 import * as github from '@actions/github'
+import { loadConfig } from './loadConfig'
 
 async function run() {
   try {
@@ -14,31 +15,43 @@ async function run() {
     if (pullRequest.user.login.includes('dependabot')) {
       const client = new github.GitHub(token)
 
-      const currentOpenPullRequests = await client.pulls.list({
-        owner: github.context.repo.owner,
-        repo: github.context.repo.repo,
-        state: 'open',
-      })
-      const pullRequestsByDependabot = currentOpenPullRequests.data.filter(
-        (pr) => pr.user.type === 'Bot' && pr.user.login.includes('dependabot')
-      )
+      const { repo: repository } = github.context
+      const { owner, repo } = repository
 
-      const currentDependabotAssignees = pullRequestsByDependabot
-        .map((dependabotPR) =>
-          dependabotPR.requested_reviewers.map((reviewer) => reviewer.login)
-        )
-        .flat(Infinity)
-
-      const frontEndTeam1 = ['ilyaulyanov']
-
-      const result = await client.pulls.createReviewRequest({
-        owner: github.context.repo.owner,
-        repo: github.context.repo.repo,
-        pull_number: pullRequest.number,
-        reviewers: frontEndTeam1,
+      const config = await loadConfig({
+        client,
+        owner,
+        repo,
       })
 
-      return true
+      console.log(config)
+
+      // const currentOpenPullRequests = await client.pulls.list({
+      //   owner: github.context.repo.owner,
+      //   repo: github.context.repo.repo,
+      //   state: 'open',
+      // })
+
+      // const pullRequestsByDependabot = currentOpenPullRequests.data.filter(
+      //   (pr) => pr.user.type === 'Bot' && pr.user.login.includes('dependabot')
+      // )
+
+      // const currentDependabotAssignees = pullRequestsByDependabot
+      //   .map((dependabotPR) =>
+      //     dependabotPR.requested_reviewers.map((reviewer) => reviewer.login)
+      //   )
+      //   .flat(Infinity)
+
+      // const frontEndTeam1 = ['ilyaulyanov']
+
+      // const result = await client.pulls.createReviewRequest({
+      //   owner: github.context.repo.owner,
+      //   repo: github.context.repo.repo,
+      //   pull_number: pullRequest.number,
+      //   reviewers: frontEndTeam1,
+      // })
+
+      // return true
     }
 
     return true
