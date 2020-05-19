@@ -44,12 +44,7 @@ module.exports = {
           '# Changelog\n\nSee\n[Conventional Commits](https://conventionalcommits.org) for commit guidelines.',
       },
     ],
-    [
-      ('@semantic-release/github',
-      {
-        assets: 'dist/**',
-      }),
-    ],
+
     [
       '@semantic-release/npm',
       {
@@ -58,11 +53,9 @@ module.exports = {
       },
     ],
     [
-      '@semantic-release/git',
+      '@semantic-release/github',
       {
-        assets: ['package.json', 'yarn.lock', 'CHANGELOG.md', 'dist/**'],
-        message:
-          'release(version): Release ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}',
+        assets: 'dist/**',
       },
     ],
   ],
