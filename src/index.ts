@@ -24,13 +24,22 @@ async function run() {
         repo,
       })
 
-      console.log(config)
+      const labels = Object.entries(config.labels)
 
-      // const currentOpenPullRequests = await client.pulls.list({
-      //   owner: github.context.repo.owner,
-      //   repo: github.context.repo.repo,
-      //   state: 'open',
-      // })
+      const currentOpenPullRequests = await client.pulls.list({
+        owner: github.context.repo.owner,
+        repo: github.context.repo.repo,
+        state: 'open',
+      })
+
+      for (let [label, labelSetting] of labels) {
+
+      }
+
+      console.log(currentOpenPullRequests)
+      core.debug(JSON.stringify(currentOpenPullRequests.data))
+      core.debug(JSON.stringify(labels))
+
 
       // const pullRequestsByDependabot = currentOpenPullRequests.data.filter(
       //   (pr) => pr.user.type === 'Bot' && pr.user.login.includes('dependabot')
