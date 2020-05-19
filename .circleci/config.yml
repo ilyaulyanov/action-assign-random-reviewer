@@ -98,7 +98,7 @@ jobs:
           paths:
             - ~/.cache/yarn
       - run: yarn build
-      - run: npx semantic-release
+      - run: yarn release
 
 workflows:
   test_workflow:
