@@ -8162,6 +8162,33 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+var __values = (this && this.__values) || function(o) {
+    var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
+    if (m) return m.call(o);
+    if (o && typeof o.length === "number") return {
+        next: function () {
+            if (o && i >= o.length) o = void 0;
+            return { value: o && o[i++], done: !o };
+        }
+    };
+    throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
+};
+var __read = (this && this.__read) || function (o, n) {
+    var m = typeof Symbol === "function" && o[Symbol.iterator];
+    if (!m) return o;
+    var i = m.call(o), r, ar = [], e;
+    try {
+        while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
+    }
+    catch (error) { e = { error: error }; }
+    finally {
+        try {
+            if (r && !r.done && (m = i["return"])) m.call(i);
+        }
+        finally { if (e) throw e.error; }
+    }
+    return ar;
+};
 var __importStar = (this && this.__importStar) || function (mod) {
     if (mod && mod.__esModule) return mod;
     var result = {};
@@ -8175,18 +8202,19 @@ var github = __importStar(__webpack_require__(469));
 var loadConfig_1 = __webpack_require__(346);
 function run() {
     return __awaiter(this, void 0, void 0, function () {
-        var token, pullRequest, client, repository, owner, repo, config, error_1;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
+        var token, pullRequest, client, repository, owner, repo, config, labels, currentOpenPullRequests, labels_1, labels_1_1, _a, label, labelSetting, error_1;
+        var e_1, _b;
+        return __generator(this, function (_c) {
+            switch (_c.label) {
                 case 0:
-                    _a.trys.push([0, 3, , 4]);
+                    _c.trys.push([0, 4, , 5]);
                     token = core.getInput('repo-token', { required: true });
                     pullRequest = github.context.payload.pull_request;
                     if (!(pullRequest === null || pullRequest === void 0 ? void 0 : pullRequest.number)) {
                         console.log('Could not get pull request number from context, exiting');
                         return [2 /*return*/];
                     }
-                    if (!pullRequest.user.login.includes('dependabot')) return [3 /*break*/, 2];
+                    if (!pullRequest.user.login.includes('dependabot')) return [3 /*break*/, 3];
                     client = new github.GitHub(token);
                     repository = github.context.repo;
                     owner = repository.owner, repo = repository.repo;
@@ -8196,16 +8224,38 @@ function run() {
                             repo: repo,
                         })];
                 case 1:
-                    config = _a.sent();
-                    console.log(config);
-                    _a.label = 2;
-                case 2: return [2 /*return*/, true];
-                case 3:
-                    error_1 = _a.sent();
+                    config = _c.sent();
+                    labels = Object.entries(config.labels);
+                    return [4 /*yield*/, client.pulls.list({
+                            owner: github.context.repo.owner,
+                            repo: github.context.repo.repo,
+                            state: 'open',
+                        })];
+                case 2:
+                    currentOpenPullRequests = _c.sent();
+                    try {
+                        for (labels_1 = __values(labels), labels_1_1 = labels_1.next(); !labels_1_1.done; labels_1_1 = labels_1.next()) {
+                            _a = __read(labels_1_1.value, 2), label = _a[0], labelSetting = _a[1];
+                        }
+                    }
+                    catch (e_1_1) { e_1 = { error: e_1_1 }; }
+                    finally {
+                        try {
+                            if (labels_1_1 && !labels_1_1.done && (_b = labels_1.return)) _b.call(labels_1);
+                        }
+                        finally { if (e_1) throw e_1.error; }
+                    }
+                    console.log(currentOpenPullRequests);
+                    core.debug(JSON.stringify(currentOpenPullRequests.data));
+                    core.debug(JSON.stringify(labels));
+                    _c.label = 3;
+                case 3: return [2 /*return*/, true];
+                case 4:
+                    error_1 = _c.sent();
                     core.error(error_1);
                     core.setFailed(error_1.message);
-                    return [3 /*break*/, 4];
-                case 4: return [2 /*return*/];
+                    return [3 /*break*/, 5];
+                case 5: return [2 /*return*/];
             }
         });
     });

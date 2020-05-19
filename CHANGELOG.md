@@ -3,6 +3,13 @@
 See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.1](https://github.com/ilyaulyanov/action-assign-random-reviewer/compare/v1.7.0...v1.7.1) (2020-05-19)
+
+
+### Bug Fixes
+
+* debug ([daeed89](https://github.com/ilyaulyanov/action-assign-random-reviewer/commit/daeed89523b2a3d57cc10b7779320533eb2b1deb))
+
 # [1.7.0](https://github.com/ilyaulyanov/action-assign-random-reviewer/compare/v1.6.0...v1.7.0) (2020-05-17)
 
 
