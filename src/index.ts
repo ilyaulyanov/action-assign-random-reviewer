@@ -28,6 +28,9 @@ async function run() {
       owner,
       repo,
     })
+    
+
+    core.info(JSON.stringify(config))
 
     const matchedLabels = Object.entries(config.labels).filter(
       ([labelName]) => {
@@ -42,6 +45,8 @@ async function run() {
       console.log('should return label not found')
       return
     }
+    
+    core.info('get reviewers' + matchedLabels.toString())
 
     const getReviewersForLabel = ([
       _,
@@ -58,6 +63,8 @@ async function run() {
       ...matchedLabels.map((matchedLabel) => getReviewersForLabel(matchedLabel))
     )
 
+    core.info('reviewers' + [...reviewers].toString())
+
     const result = await client.pulls.createReviewRequest({
       owner,
       repo,
@@ -65,7 +72,7 @@ async function run() {
       reviewers: [...reviewers],
     })
 
-    console.log(result)
+    core.info('status' + result.status.toString())
 
     // getReviewerForLabel
     // const reviewers = pullRequestAppliedLabels.map((appliedLabel) =>
