@@ -224,6 +224,13 @@
   dependencies:
     "@types/node" ">= 8"
 
+"@octokit/webhooks@^7.6.1":
+  version "7.6.1"
+  resolved "https://registry.yarnpkg.com/@octokit/webhooks/-/webhooks-7.6.1.tgz#549e9ccf311e3f41cc6b7e3895564c8cf1d40bab"
+  integrity sha512-xZiS+V9ZApmCtsavY0yWhwPm+z+bZz9bqYb6ZbeIvloJMwxw2w99eg9bCSngkCq0W4mMX2ZtJF2b6ToN9+iH1w==
+  dependencies:
+    debug "^4.0.0"
+
 "@semantic-release/changelog@^5.0.1":
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/@semantic-release/changelog/-/changelog-5.0.1.tgz#50a84b63e5d391b7debfe021421589fa2bcdafe4"
@@ -359,6 +366,11 @@
   version "3.12.4"
   resolved "https://registry.yarnpkg.com/@types/js-yaml/-/js-yaml-3.12.4.tgz#7d3b534ec35a0585128e2d332db1403ebe057e25"
   integrity sha512-fYMgzN+9e28R81weVN49inn/u798ruU91En1ZnGvSZzCRc5jXx9B2EDhlRaWmcO1RIxFHL8AajRXzxDuJu93+A==
+
+"@types/lodash@^4.14.152":
+  version "4.14.152"
+  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.152.tgz#7e7679250adce14e749304cdb570969f77ec997c"
+  integrity sha512-Vwf9YF2x1GE3WNeUMjT5bTHa2DqgUo87ocdgTScupY2JclZ5Nn7W2RLM/N0+oreexUk8uaVugR81NnTY/jNNXg==
 
 "@types/minimist@^1.2.0":
   version "1.2.0"
