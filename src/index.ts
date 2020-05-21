@@ -54,6 +54,7 @@ async function run() {
       const allowedReviewers = reviewers.filter(
         (reviewer) => pullRequest.user.login !== reviewer // Can't request a review for your own PR
       )
+      if (reviewers.length === 0 || allowedReviewers.length === 0) return []
       if (random === true) {
         const reviewer = sample(allowedReviewers) as string
         return [reviewer]
