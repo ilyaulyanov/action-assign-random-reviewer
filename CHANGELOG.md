@@ -3,6 +3,13 @@
 See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.1](https://github.com/ilyaulyanov/action-assign-random-reviewer/compare/v1.9.0...v1.9.1) (2020-05-21)
+
+
+### Bug Fixes
+
+* exit when no reviewers can be assigned ([faeeee0](https://github.com/ilyaulyanov/action-assign-random-reviewer/commit/faeeee024e4dfd5417634d6e17de2f7ad0d680b8))
+
 # [1.9.0](https://github.com/ilyaulyanov/action-assign-random-reviewer/compare/v1.8.3...v1.9.0) (2020-05-21)
 
 

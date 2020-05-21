@@ -8244,6 +8244,10 @@ function run() {
                     };
                     reviewers = new (Set.bind.apply(Set, __spread([void 0], matchedLabels_1.map(function (matchedLabel) { return getReviewersForLabel_1(matchedLabel); }))))();
                     core.debug('reviewers' + __spread(reviewers).toString());
+                    if (reviewers.size === 0) {
+                        console.log('No reviewers to assign, exiting');
+                        return [2 /*return*/];
+                    }
                     return [4 /*yield*/, client.pulls.createReviewRequest({
                             owner: owner,
                             repo: repo,
