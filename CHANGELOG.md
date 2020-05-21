@@ -3,6 +3,13 @@
 See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.2](https://github.com/ilyaulyanov/action-assign-random-reviewer/compare/v1.9.1...v1.9.2) (2020-05-21)
+
+
+### Bug Fixes
+
+* update exit condition for getReviewersForLabel ([0aeda62](https://github.com/ilyaulyanov/action-assign-random-reviewer/commit/0aeda622552678ac1b3743979516520f428ca09e))
+
 ## [1.9.1](https://github.com/ilyaulyanov/action-assign-random-reviewer/compare/v1.9.0...v1.9.1) (2020-05-21)
 
 

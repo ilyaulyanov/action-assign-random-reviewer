@@ -8236,6 +8236,8 @@ function run() {
                         var _b = __read(_a, 2), _ = _b[0], _c = _b[1], reviewers = _c.reviewers, random = _c.random;
                         var allowedReviewers = reviewers.filter(function (reviewer) { return pullRequest_1.user.login !== reviewer; } // Can't request a review for your own PR
                         );
+                        if (reviewers.length === 0 || allowedReviewers.length === 0)
+                            return [];
                         if (random === true) {
                             var reviewer = lodash_1.sample(allowedReviewers);
                             return [reviewer];
