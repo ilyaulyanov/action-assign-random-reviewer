@@ -67,6 +67,10 @@ async function run() {
 
     core.debug('reviewers' + [...reviewers].toString())
 
+    if (reviewers.size === 0) {
+      console.log('No reviewers to assign, exiting')
+      return
+    }
     const result = await client.pulls.createReviewRequest({
       owner,
       repo,
