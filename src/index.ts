@@ -16,7 +16,7 @@ async function run() {
     } = payload as Webhooks.WebhookPayloadPullRequest
 
     if (!pullRequest?.number) {
-      console.log('Could not get pull request number from context, exiting')
+      core.debug('Could not get pull request number from context, exiting')
       return
     }
 
@@ -30,7 +30,7 @@ async function run() {
     })
     
 
-    core.info(JSON.stringify(config))
+    core.debug(JSON.stringify(config))
 
     const matchedLabels = Object.entries(config.labels).filter(
       ([labelName]) => {
@@ -46,7 +46,7 @@ async function run() {
       return
     }
     
-    core.info('get reviewers' + matchedLabels.toString())
+    core.debug('get reviewers' + matchedLabels.toString())
 
     const getReviewersForLabel = ([
       _,
@@ -63,7 +63,7 @@ async function run() {
       ...matchedLabels.map((matchedLabel) => getReviewersForLabel(matchedLabel))
     )
 
-    core.info('reviewers' + [...reviewers].toString())
+    core.debug('reviewers' + [...reviewers].toString())
 
     const result = await client.pulls.createReviewRequest({
       owner,
@@ -72,7 +72,7 @@ async function run() {
       reviewers: [...reviewers],
     })
 
-    core.info('status' + result.status.toString())
+    core.debug('status' + result.status.toString())
 
     // getReviewerForLabel
     // const reviewers = pullRequestAppliedLabels.map((appliedLabel) =>
