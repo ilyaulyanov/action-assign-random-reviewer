@@ -28,7 +28,6 @@ async function run() {
       owner,
       repo,
     })
-    
 
     core.debug(JSON.stringify(config))
 
@@ -45,18 +44,21 @@ async function run() {
       console.log('should return label not found')
       return
     }
-    
+
     core.debug('get reviewers' + matchedLabels.toString())
 
     const getReviewersForLabel = ([
       _,
       { reviewers, random },
     ]: typeof matchedLabels[0]) => {
+      const allowedReviewers = reviewers.filter(
+        (reviewer) => pullRequest.user.login !== reviewer // Can't request a review for your own PR
+      )
       if (random === true) {
-        const reviewer = sample(reviewers) as string
+        const reviewer = sample(allowedReviewers) as string
         return [reviewer]
       }
-      return reviewers
+      return allowedReviewers
     }
 
     const reviewers = new Set(
