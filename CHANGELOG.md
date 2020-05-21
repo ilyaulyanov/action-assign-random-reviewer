@@ -3,6 +3,13 @@
 See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.9.0](https://github.com/ilyaulyanov/action-assign-random-reviewer/compare/v1.8.3...v1.9.0) (2020-05-21)
+
+
+### Features
+
+* disallow reviews from yourself ([f35d7f8](https://github.com/ilyaulyanov/action-assign-random-reviewer/commit/f35d7f819ff6c41590b05718578f53fc6bec49c3))
+
 ## [1.8.3](https://github.com/ilyaulyanov/action-assign-random-reviewer/compare/v1.8.2...v1.8.3) (2020-05-21)
 
 ## [1.7.4](https://github.com/ilyaulyanov/action-assign-random-reviewer/compare/v1.7.3...v1.7.4) (2020-05-19)

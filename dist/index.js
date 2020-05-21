@@ -8234,11 +8234,13 @@ function run() {
                     core.debug('get reviewers' + matchedLabels_1.toString());
                     getReviewersForLabel_1 = function (_a) {
                         var _b = __read(_a, 2), _ = _b[0], _c = _b[1], reviewers = _c.reviewers, random = _c.random;
+                        var allowedReviewers = reviewers.filter(function (reviewer) { return pullRequest_1.user.login !== reviewer; } // Can't request a review for your own PR
+                        );
                         if (random === true) {
-                            var reviewer = lodash_1.sample(reviewers);
+                            var reviewer = lodash_1.sample(allowedReviewers);
                             return [reviewer];
                         }
-                        return reviewers;
+                        return allowedReviewers;
                     };
                     reviewers = new (Set.bind.apply(Set, __spread([void 0], matchedLabels_1.map(function (matchedLabel) { return getReviewersForLabel_1(matchedLabel); }))))();
                     core.debug('reviewers' + __spread(reviewers).toString());
