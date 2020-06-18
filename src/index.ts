@@ -6,9 +6,14 @@ import { sample } from 'lodash'
 
 async function run() {
   try {
+    core.debug('starting')
     const token = core.getInput('repo-token', { required: true })
+    core.debug('getting token')
+    core.debug(token)
+    core.debug('initializing client')
     const client = new github.GitHub(token)
 
+    core.debug('getting context')
     const { repo: repository, payload } = github.context
     const { owner, repo } = repository
     const {
@@ -23,6 +28,7 @@ async function run() {
     /* DEBUG */
     // const repo = 'release-automatic-changelog'
 
+    core.debug('loading config')
     const config = await loadConfig({
       client,
       owner,
@@ -139,6 +145,7 @@ async function run() {
     //   console.log('pull request not from dependabot')
     // }
   } catch (error) {
+    core.error('something went wrong')
     core.error(error)
     core.setFailed(error.message)
   }
