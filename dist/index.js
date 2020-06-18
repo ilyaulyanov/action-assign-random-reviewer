@@ -6923,7 +6923,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core = __importStar(__webpack_require__(470));
 var yaml = __importStar(__webpack_require__(186));
 exports.loadConfig = function (_a) {
-    var client = _a.client, owner = _a.owner, repo = _a.repo;
+    var client = _a.client, owner = _a.owner, repo = _a.repo, ref = _a.ref;
     return __awaiter(void 0, void 0, void 0, function () {
         var configPath, remoteConfig, content, configString, config;
         return __generator(this, function (_b) {
@@ -6934,6 +6934,7 @@ exports.loadConfig = function (_a) {
                             owner: owner,
                             repo: repo,
                             path: configPath,
+                            ref: ref
                         })
                         // ReposGetContentsResponseItem
                     ];
@@ -8198,7 +8199,7 @@ var loadConfig_1 = __webpack_require__(346);
 var lodash_1 = __webpack_require__(557);
 function run() {
     return __awaiter(this, void 0, void 0, function () {
-        var token, client, _a, repository, payload, owner, repo, pullRequest_1, config, matchedLabels_1, getReviewersForLabel_1, reviewers, result, error_1;
+        var token, client, _a, repository, payload, ref, owner, repo, pullRequest_1, config, matchedLabels_1, getReviewersForLabel_1, reviewers, result, error_1;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
@@ -8210,7 +8211,7 @@ function run() {
                     core.debug('initializing client');
                     client = new github.GitHub(token);
                     core.debug('getting context');
-                    _a = github.context, repository = _a.repo, payload = _a.payload;
+                    _a = github.context, repository = _a.repo, payload = _a.payload, ref = _a.ref;
                     owner = repository.owner, repo = repository.repo;
                     pullRequest_1 = payload.pull_request;
                     if (!(pullRequest_1 === null || pullRequest_1 === void 0 ? void 0 : pullRequest_1.number)) {
@@ -8220,10 +8221,12 @@ function run() {
                     /* DEBUG */
                     // const repo = 'release-automatic-changelog'
                     core.debug('loading config');
+                    core.debug('ref: ' + ref);
                     return [4 /*yield*/, loadConfig_1.loadConfig({
                             client: client,
                             owner: owner,
                             repo: repo,
+                            ref: ref
                         })];
                 case 1:
                     config = _b.sent();

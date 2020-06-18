@@ -3,6 +3,13 @@
 See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.4](https://github.com/ilyaulyanov/action-assign-random-reviewer/compare/v1.9.3...v1.9.4) (2020-06-18)
+
+
+### Bug Fixes
+
+* use ref for fetching config file ([2bb9d66](https://github.com/ilyaulyanov/action-assign-random-reviewer/commit/2bb9d66e2adf492395b34fe18c74fe4e7442fe1c))
+
 ## [1.9.3](https://github.com/ilyaulyanov/action-assign-random-reviewer/compare/v1.9.2...v1.9.3) (2020-06-18)
 
 ## [1.9.2](https://github.com/ilyaulyanov/action-assign-random-reviewer/compare/v1.9.1...v1.9.2) (2020-05-21)

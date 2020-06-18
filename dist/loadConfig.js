@@ -46,7 +46,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core = __importStar(require("@actions/core"));
 var yaml = __importStar(require("js-yaml"));
 exports.loadConfig = function (_a) {
-    var client = _a.client, owner = _a.owner, repo = _a.repo;
+    var client = _a.client, owner = _a.owner, repo = _a.repo, ref = _a.ref;
     return __awaiter(void 0, void 0, void 0, function () {
         var configPath, remoteConfig, content, configString, config;
         return __generator(this, function (_b) {
@@ -57,6 +57,7 @@ exports.loadConfig = function (_a) {
                             owner: owner,
                             repo: repo,
                             path: configPath,
+                            ref: ref
                         })
                         // ReposGetContentsResponseItem
                     ];
