@@ -3,6 +3,8 @@
 See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.3](https://github.com/ilyaulyanov/action-assign-random-reviewer/compare/v1.9.2...v1.9.3) (2020-06-18)
+
 ## [1.9.2](https://github.com/ilyaulyanov/action-assign-random-reviewer/compare/v1.9.1...v1.9.2) (2020-05-21)
 
 

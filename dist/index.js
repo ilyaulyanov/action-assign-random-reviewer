@@ -8203,8 +8203,13 @@ function run() {
             switch (_b.label) {
                 case 0:
                     _b.trys.push([0, 3, , 4]);
+                    core.debug('starting');
                     token = core.getInput('repo-token', { required: true });
+                    core.debug('getting token');
+                    core.debug(token);
+                    core.debug('initializing client');
                     client = new github.GitHub(token);
+                    core.debug('getting context');
                     _a = github.context, repository = _a.repo, payload = _a.payload;
                     owner = repository.owner, repo = repository.repo;
                     pullRequest_1 = payload.pull_request;
@@ -8212,6 +8217,9 @@ function run() {
                         core.debug('Could not get pull request number from context, exiting');
                         return [2 /*return*/];
                     }
+                    /* DEBUG */
+                    // const repo = 'release-automatic-changelog'
+                    core.debug('loading config');
                     return [4 /*yield*/, loadConfig_1.loadConfig({
                             client: client,
                             owner: owner,
@@ -8262,6 +8270,7 @@ function run() {
                     return [3 /*break*/, 4];
                 case 3:
                     error_1 = _b.sent();
+                    core.error('something went wrong');
                     core.error(error_1);
                     core.setFailed(error_1.message);
                     return [3 /*break*/, 4];
