@@ -16,10 +16,12 @@ export const loadConfig = async ({
   client,
   owner,
   repo,
+  ref
 }: {
   client: github.GitHub
   owner: string
-  repo: string
+  repo: string,
+  ref: string
 }): Promise<ActionConfig> => {
   const configPath = core.getInput('action-config', { required: false })
 
@@ -27,6 +29,7 @@ export const loadConfig = async ({
     owner,
     repo,
     path: configPath,
+    ref
   })
 
   // ReposGetContentsResponseItem

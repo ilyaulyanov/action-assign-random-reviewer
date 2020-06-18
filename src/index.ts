@@ -14,7 +14,7 @@ async function run() {
     const client = new github.GitHub(token)
 
     core.debug('getting context')
-    const { repo: repository, payload } = github.context
+    const { repo: repository, payload, ref } = github.context
     const { owner, repo } = repository
     const {
       pull_request: pullRequest,
@@ -29,10 +29,12 @@ async function run() {
     // const repo = 'release-automatic-changelog'
 
     core.debug('loading config')
+    core.debug('ref: ' + ref)
     const config = await loadConfig({
       client,
       owner,
       repo,
+      ref
     })
 
     core.debug(JSON.stringify(config))
