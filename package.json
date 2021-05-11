@@ -24,7 +24,7 @@
     "@zeit/ncc": "^0.22.1",
     "dotenv": "^8.2.0",
     "js-yaml": "^3.13.1",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "prettier": "^2.0.5",
     "semantic-release": "^17.0.7",
     "typescript": "^3.8.3"
